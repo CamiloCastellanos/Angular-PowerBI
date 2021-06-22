@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PowerBILinkComponent } from './components/power-bilink/power-bilink.component';
 import { PowerBILibraryComponent } from './components/power-bilibrary/power-bilibrary.component';
+import { DomSeguroPipe } from './pipes/dom-seguro.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     PowerBILinkComponent,
-    PowerBILibraryComponent
+    PowerBILibraryComponent,
+    DomSeguroPipe
   ],
   imports: [
     BrowserModule,
