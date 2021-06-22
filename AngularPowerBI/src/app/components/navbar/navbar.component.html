@@ -4,7 +4,15 @@
             Power Bi
         </p>
         <ul class="menu-list">
-            <li><a href="Link">Power Bi Link</a></li>
+            <li>
+                <a></a>
+                <a class="is-active">Power Bi Link</a>
+                <ul>
+                    <li *ngFor="let item of listaDashboard; index as i">
+                        <a href="Link/{{i}}" routerLinkActive="is-active">{{item.titulo}}</a>
+                    </li>
+                </ul>
+            </li>
             <li><a href="Library">Power Bi Library</a></li>
         </ul>
     </aside>
