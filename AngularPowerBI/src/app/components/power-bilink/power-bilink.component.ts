@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Dashboard } from '../../Model/Dashboard.Model';
+import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-power-bilink',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PowerBILinkComponent implements OnInit {
 
-  constructor() { }
+  public powerBI: Dashboard = new Dashboard();
 
-  ngOnInit(): void {
+  constructor(private dashboardService: DashboardService, private router: ActivatedRoute) {
+    debugger;
+    let dashBoardId: number = 0;
+    dashBoardId = parseInt(router.snapshot.paramMap.get('id'));
+    this.powerBI = this.dashboardService.getDashBoard(dashBoardId);
+    debugger;
   }
 
+  ngOnInit(): void { }
 }

@@ -5,10 +5,10 @@ import { PowerBILinkComponent } from './components/power-bilink/power-bilink.com
 
 
 const routes: Routes = [
-  {path:'Link', component:PowerBILinkComponent},
+  {path:'Link/:id', component:PowerBILinkComponent},
   {path:'Library', component:PowerBILibraryComponent},
-  { path: '**', pathMatch: 'full', redirectTo: 'Link' },
-  { path: '', pathMatch: 'full', redirectTo: 'Link' }
+  { path: '**', pathMatch: 'full', redirectTo: 'Link/0' },
+  { path: '', pathMatch: 'full', redirectTo: 'Link/0' }
 ];
 
 @NgModule({
