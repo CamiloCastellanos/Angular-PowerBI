@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Dashboard } from '../../Model/Dashboard.Model';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Dashboard } from '../../Model/Dashboard.model';
 import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
@@ -11,14 +11,18 @@ import { DashboardService } from 'src/app/services/dashboard.service';
 export class PowerBILinkComponent implements OnInit {
 
   public powerBI: Dashboard = new Dashboard();
+  public alto: number = 450;
+  public ancho: number = 1000;
 
   constructor(private dashboardService: DashboardService, private router: ActivatedRoute) {
-    debugger;
-    let dashBoardId: number = 0;
-    dashBoardId = parseInt(router.snapshot.paramMap.get('id'));
-    this.powerBI = this.dashboardService.getDashBoard(dashBoardId);
-    debugger;
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.router.paramMap.subscribe((params: ParamMap) => {
+      let dashBoardId: number = 0;
+      dashBoardId = parseInt(params.get('id'));
+      this.powerBI = this.dashboardService.getDashBoard(dashBoardId);
+    });
+  }
+
 }

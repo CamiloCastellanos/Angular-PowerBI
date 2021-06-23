@@ -1,0 +1,18 @@
+<div class="container">
+    <aside class="menu">
+        <p class="menu-label">
+            Lista de Dashboards
+        </p>
+        <ul class="menu-list">
+            <li>
+                <p>Power Bi </p>
+                <ul>
+                    <li *ngFor="let item of listaDashboard; index as i">
+                        <a routerLink="Link/{{i}}" active="is-active" routerLinkActive="is-active">{{item.titulo}}</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- <li><a routerLinkActive="is-active" routerLink="Library">Power Bi Library</a></li> -->
+        </ul>
+    </aside>
+</div>

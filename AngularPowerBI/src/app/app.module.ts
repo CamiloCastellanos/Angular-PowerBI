@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PowerBILinkComponent } from './components/power-bilink/power-bilink.component';
 import { PowerBILibraryComponent } from './components/power-bilibrary/power-bilibrary.component';
 import { DomSeguroPipe } from './pipes/dom-seguro.pipe';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { DomSeguroPipe } from './pipes/dom-seguro.pipe';
     NavbarComponent,
     PowerBILinkComponent,
     PowerBILibraryComponent,
-    DomSeguroPipe
+    DomSeguroPipe,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
