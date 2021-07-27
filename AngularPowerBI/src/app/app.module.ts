@@ -8,7 +8,9 @@ import { PowerBILinkComponent } from './components/power-bilink/power-bilink.com
 import { PowerBILibraryComponent } from './components/power-bilibrary/power-bilibrary.component';
 import { DomSeguroPipe } from './pipes/dom-seguro.pipe';
 import { MenuComponent } from './components/menu/menu.component';
-
+/// PrimeNG
+import {PanelMenuModule} from 'primeng/panelmenu';
+import {MenubarModule} from 'primeng/menubar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import { MenuComponent } from './components/menu/menu.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PanelMenuModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
