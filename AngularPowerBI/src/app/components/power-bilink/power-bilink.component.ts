@@ -21,7 +21,7 @@ export class PowerBILinkComponent implements OnInit {
     this.router.paramMap.subscribe((params: ParamMap) => {
       let dashBoardId: number = 0;
       dashBoardId = parseInt(params.get('id'));
-      this.powerBI = this.dashboardService.getDashBoard(dashBoardId);
+      this.powerBI = this.dashboardService.getDashBoardPowerBI(dashBoardId);
     });
   }
 

@@ -11,6 +11,10 @@ import { MenuComponent } from './components/menu/menu.component';
 /// PrimeNG
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {MenubarModule} from 'primeng/menubar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SidebarModule} from 'primeng/sidebar';
+import {ButtonModule} from 'primeng/button';
+import {CardModule} from 'primeng/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +26,13 @@ import {MenubarModule} from 'primeng/menubar';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     PanelMenuModule,
-    MenubarModule
+    MenubarModule,
+    SidebarModule,
+    ButtonModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

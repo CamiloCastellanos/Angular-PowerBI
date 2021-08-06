@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 import { Dashboard } from '../Model/Dashboard.model';
 
 
@@ -7,12 +8,13 @@ import { Dashboard } from '../Model/Dashboard.model';
 })
 export class DashboardService {
 
-  listaDashboard: Dashboard[] = [];
+  private listaPowerBI: Dashboard[] = [];
 
   constructor() {
     this.cargarLista();
   }
 
+  // Carga las listas de los Dashboard
   private cargarLista() {
 
     let listaPantallas = {
@@ -56,14 +58,120 @@ export class DashboardService {
       let titulo = new Dashboard();
       titulo.titulo = listaPantallas.pantalla[item].titulo;
       titulo.link = listaPantallas.pantalla[item].link;
-      this.listaDashboard.push(titulo);
+      this.listaPowerBI.push(titulo);
     }
   }
 
-  public getDashBoard(dashBoardId: number): Dashboard {
-    if (dashBoardId < 0 || dashBoardId > this.listaDashboard.length) {
+  //Retorna el dashboard del Power Bi dependiendo de la posicion en la lista
+  public getDashBoardPowerBI(dashBoardId: number): Dashboard {
+    if (dashBoardId < 0 || dashBoardId > this.listaPowerBI.length) {
       dashBoardId = 0;
     }
-    return this.listaDashboard[dashBoardId];
+    return this.listaPowerBI[dashBoardId];
   }
+
+  /// Creacion de Lista de Dashboards
+  public getListaDashboard(): MenuItem[] {
+    let menuLateral: MenuItem[] = [];
+    menuLateral = [
+      this.getPowerBI(),
+      this.getGoogleDataStudio(),
+      this.getChart(),
+      this.getTableau()
+    ]
+    return menuLateral;
+  }
+
+  /// Creacion Menu de Power BI
+  private getPowerBI(): MenuItem {
+    let menuPowerBI: MenuItem;
+    let listaDashboard: MenuItem[] = [];
+
+    this.listaPowerBI.forEach(
+      (dashBoard, index) => {
+        listaDashboard.push({
+          label: dashBoard.titulo,
+          icon: 'pi pi-pw pi-file',
+          routerLink: 'Link/' + index
+        });
+      }
+    );
+
+    menuPowerBI = {
+      label: 'Power BI',
+      icon: 'pi pi-pw pi-file',
+      items: listaDashboard
+    }
+    return menuPowerBI;
+  }
+
+  /// Creacion Menu de Tableau
+  private getTableau(): MenuItem {
+    let menuTableu: MenuItem;
+    let listaDashboard: MenuItem[] = [];
+
+    this.listaPowerBI.forEach(
+      (dashBoard, index) => {
+        listaDashboard.push({
+          label: dashBoard.titulo,
+          icon: 'pi pi-pw pi-file',
+          routerLink: 'Link/' + index
+        });
+      }
+    );
+
+    menuTableu = {
+      label: 'Tableau',
+      icon: 'pi pi-pw pi-file',
+      items: listaDashboard
+    }
+    return menuTableu;
+  }
+
+  /// Creacion Menu de Google Data Studio
+  private getChart(): MenuItem {
+    let menuChart: MenuItem;
+    let listaDashboard: MenuItem[] = [];
+
+    this.listaPowerBI.forEach(
+      (dashBoard, index) => {
+        listaDashboard.push({
+          label: dashBoard.titulo,
+          icon: 'pi pi-pw pi-file',
+          routerLink: 'Link/' + index
+        });
+      }
+    );
+
+    menuChart = {
+      label: 'Chart Prime NG',
+      icon: 'pi pi-pw pi-file',
+      items: listaDashboard
+    }
+    return menuChart;
+  }
+
+  /// Creacion Menu Google Data Studio
+  private getGoogleDataStudio(): MenuItem {
+    let menuGoogleDataStudio: MenuItem;
+    let listaDashboard: MenuItem[] = [];
+
+    this.listaPowerBI.forEach(
+      (dashBoard, index) => {
+        listaDashboard.push({
+          label: dashBoard.titulo,
+          icon: 'pi pi-pw pi-file',
+          routerLink: 'Link/' + index
+        });
+      }
+    );
+
+    menuGoogleDataStudio = {
+      label: 'Google Data Studio',
+      icon: 'pi pi-pw pi-file',
+      items: listaDashboard
+    }
+    return menuGoogleDataStudio;
+  }
+
 }

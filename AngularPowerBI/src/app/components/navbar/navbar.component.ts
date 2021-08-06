@@ -10,30 +10,20 @@ export class NavbarComponent implements OnInit {
 
   items: MenuItem[];
   constructor() { }
-
+  visibleSidebar1: boolean;
   ngOnInit(): void {
     this.items = [
       {
-        label: 'File',
-        items: [{
-          label: 'New',
-          icon: 'pi pi-fw pi-plus',
-          items: [
-            { label: 'Project' },
-            { label: 'Other' },
-          ]
-        },
-        { label: 'Open' },
-        { label: 'Quit' }
-        ]
+        label: 'Power BI',
+        icon: 'pi pi-fw pi-github',
+        url:"https://github.com/CamiloCastellanos/PowerBi",
+        target:"_blank"
       },
       {
-        label: 'Edit',
-        icon: 'pi pi-fw pi-pencil',
-        items: [
-          { label: 'Delete', icon: 'pi pi-fw pi-trash' },
-          { label: 'Refresh', icon: 'pi pi-fw pi-refresh' }
-        ]
+        label: 'Git Page',
+        icon: 'pi pi-fw pi-github',
+        url:"https://github.com/CamiloCastellanos/Angular-PowerBI",
+        target:"_blank"
       }
     ];
   }

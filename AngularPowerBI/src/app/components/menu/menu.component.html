@@ -1,20 +1,4 @@
-<!-- <div class="container">
-    <aside class="menu">
-        <p class="menu-label">
-            Lista de Dashboards
-        </p>
-        <ul class="menu-list">
-            <li>
-                <p>Power Bi </p>
-                <ul>
-                    <li *ngFor="let item of listaDashboard; index as i">
-                        <a routerLink="Link/{{i}}" active="is-active" routerLinkActive="is-active">{{item.titulo}}</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a routerLinkActive="is-active" routerLink="Library">Power Bi Library</a></li> -->
-<!-- </ul>
-</aside>
-</div> -->
-
-<p-panelMenu [model]="items" [style]="{'width':'300px'}"></p-panelMenu>
+<p-button type="text" (click)="visibilidadSideBar = true" icon="pi pi-chart-line" label="Reportes"></p-button>
+<p-sidebar [modal]="false" [(visible)]="visibilidadSideBar">
+    <p-panelMenu [model]="listaDashboard"></p-panelMenu>
+</p-sidebar>
